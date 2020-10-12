@@ -35,6 +35,9 @@ RUN apt-get update -yqq && apt-get install -yqq --no-install-recommends \
 
 COPY Gemfile* /usr/src/app/
 WORKDIR /usr/src/app
+
+ENV BUNDLE_PATH /gems
+
 RUN bundle config mirror.https://rubygems.org https://gems.ruby-china.com && bundle install
 
 COPY . /usr/src/app/
